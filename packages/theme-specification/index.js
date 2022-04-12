@@ -25,7 +25,8 @@ const parseThemeColors = ({ theme }) => {
       const [itemName, attrs] = item
 
       if (attrs?.type === 'color') {
-        const colorName = `${categoryName}${itemName.charAt(0).toUpperCase() + itemName.slice(1)}`
+        const formattedItemName = itemName === 'default' ? '' : itemName.charAt(0).toUpperCase() + itemName.slice(1)
+        const colorName = `${categoryName}${formattedItemName}`
         const colorValue = colorParser({ value: attrs.value })
         return { ...result, [colorName]: colorValue }
       }
