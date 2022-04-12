@@ -1,0 +1,8 @@
+{
+  "name": "theme-specification",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Kyle Lauber <linkdevk@gmail.com> (https://github.com/linkdevk/)",
+  "license": "MIT"
+}
