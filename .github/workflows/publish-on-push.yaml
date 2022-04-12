@@ -14,4 +14,4 @@ jobs:
           node-version: '16.x'
       - run: npm set "//registry.npmjs.org/:_authToken = ${{ secrets.NPM_AUTH_TOKEN }}"
       - run: npm install
-      - run: npm github-release
+      - run: npm run github-release
