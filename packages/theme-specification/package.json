@@ -1,6 +1,6 @@
 {
   "name": "@kylegl/theme-specification",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "author": "Kyle Lauber <linkdevk@gmail.com> (https://github.com/linkdevk/)",
