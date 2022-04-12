@@ -4,5 +4,9 @@
   "description": "",
   "main": "index.js",
   "author": "Kyle Lauber <linkdevk@gmail.com> (https://github.com/linkdevk/)",
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "aea87381b4c439fe46183e02cfe1c5bc75de916c"
 }
