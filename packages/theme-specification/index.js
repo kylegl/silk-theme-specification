@@ -45,4 +45,30 @@ const themeColors = themeTypes.reduce((result, themeType) => {
   return { ...result, ...groupedColors }
 }, {})
 
-export { themeColors }
+const createShortcuts = ({ themeColors }) => {
+  const keys = Object.keys(themeColors)
+
+  const theme = themeColors[keys[0]]
+
+  const colorNames = Object.keys(theme)
+
+  const shortcuts = colorNames.reduce((result, colorName) => {
+    const acceptableTypes = ['bg', 'text']
+    const [colorType,] = colorName.split(/(?=[A-Z])/)
+    if (!acceptableTypes.includes(colorType)) return result
+
+    const shortcut = {
+      [colorName]: `${colorType}-light-${colorName} dark:${colorType}-dark-${colorName}`
+    }
+
+    return { ...result, ...shortcut }
+  }, {})
+
+  return shortcuts
+}
+
+
+
+const shortcuts = createShortcuts({ themeColors })
+
+export { themeColors, shortcuts }
