@@ -18,7 +18,6 @@ const parseThemeColors = ({ theme }) => {
 
   const colorCategories = themeCategories.reduce((categories, category) => {
     const [categoryName, items] = category
-
     const itemList = Object.entries(items)
 
     const colors = itemList.reduce((result, item) => {
@@ -47,22 +46,18 @@ const themeColors = themeTypes.reduce((result, themeType) => {
 
 const createShortcuts = ({ themeColors }) => {
   const keys = Object.keys(themeColors)
-
   const theme = themeColors[keys[0]]
-
   const colorNames = Object.keys(theme)
 
   const shortcuts = colorNames.reduce((result, colorName) => {
-    const acceptableTypes = ['bg', 'text']
-    const [colorType,] = colorName.split(/(?=[A-Z])/)
-    if (!acceptableTypes.includes(colorType)) return result
+    const matcher = new RegExp(`^([A-Za-z]+)-${colorName}$`)
 
-    const shortcut = {
-      [colorName]: `${colorType}-light-${colorName} dark:${colorType}-dark-${colorName}`
-    }
+    const shortcut = [
+      matcher, ([, s]) => `${s}-light-${colorName} dark:${s}-dark-${colorName}`
+    ]
 
-    return { ...result, ...shortcut }
-  }, {})
+    return [...result, shortcut]
+  }, [])
 
   return shortcuts
 }
